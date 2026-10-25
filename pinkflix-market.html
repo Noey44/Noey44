@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Junioss · ตลาดซื้อขายแอพดูหนัง</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffafc;--card:#ffffff;--ink:#6b3a55;--soft:#a77a92;--pink:#ff8fc0;--pink2:#ffe3ef;--deep:#ec5a9c;--line:#ffd0e4;--btn-ink:#ffffff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2d1623;--card:#3b1e2e;--ink:#ffe8f2;--soft:#dba9c2;--pink:#ff8fc0;--pink2:#5a2c44;--deep:#ff9ccb;--line:#5a2c44;--btn-ink:#3b1e2e}}
+:root[data-theme="dark"]{--bg:#2d1623;--card:#3b1e2e;--ink:#ffe8f2;--soft:#dba9c2;--pink:#ff8fc0;--pink2:#5a2c44;--deep:#ff9ccb;--line:#5a2c44;--btn-ink:#3b1e2e}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Mitr','Sarabun',sans-serif;line-height:1.7;background-image:radial-gradient(var(--pink2) 1.5px,transparent 1.6px);background-size:26px 26px}
+h1,h2,h3,.logo{font-family:'Mitr',sans-serif;font-weight:500;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-size:28px;color:var(--deep);display:flex;align-items:center;gap:8px}
+.logo svg{width:30px;height:30px}
+.nav{display:flex;gap:16px;align-items:center}
+.nav a{color:var(--ink);text-decoration:none;font-size:15px}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+.pill{background:var(--pink);color:var(--btn-ink);border-radius:999px;padding:9px 20px;font-size:15px;font-weight:600;box-shadow:0 4px 0 var(--deep);transition:transform .1s;display:inline-flex;align-items:center;gap:8px}
+.pill:active{transform:translateY(3px);box-shadow:0 1px 0 var(--deep)}
+.pill svg{width:18px;height:18px}
+.ghost{background:var(--card);color:var(--deep);border-radius:999px;padding:9px 20px;font-weight:600;border:2px solid var(--pink);font-size:15px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:26px 0 40px}
+.hero h1{font-size:clamp(32px,5.6vw,52px);line-height:1.3;color:var(--deep)}
+.hero p{color:var(--soft);font-size:17px;max-width:46ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.art{width:100%;max-width:380px;margin:0 auto}
+.art svg{width:100%;height:auto;display:block}
+.float{animation:fl 4s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none}html{scroll-behavior:auto}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
+.chip{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:6px 18px;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--pink);color:var(--btn-ink);border-color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.ico{height:112px;border-radius:22px;background:var(--pink2);display:grid;place-items:center}
+.ico svg{width:60px;height:60px;fill:var(--deep)}
+.card h3{font-size:20px;color:var(--ink)}
+.meta{color:var(--soft);font-size:13px}
+.price{font-family:'Mitr';font-size:22px;color:var(--deep)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px}
+.tag{font-size:12px;background:var(--pink2);color:var(--deep);border-radius:999px;padding:1px 12px;align-self:flex-start}
+section{padding:34px 0}
+section h2{font-size:28px;color:var(--deep)}
+.sell{background:var(--card);border:2px dashed var(--pink);border-radius:32px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.sell label{display:block;font-size:14px;color:var(--soft);margin-top:10px}
+.sell input,.sell select{width:100%;padding:10px 16px;border-radius:18px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px}
+.icons{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.icons button{background:var(--bg);border:2px solid var(--line);border-radius:16px;width:50px;height:50px;display:grid;place-items:center;padding:0}
+.icons svg{width:28px;height:28px;fill:var(--deep)}
+.icons button[aria-pressed="true"]{border-color:var(--deep);background:var(--pink2)}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.perk{background:var(--card);border-radius:24px;padding:18px;border:2px solid var(--line)}
+.perk h3{font-size:20px;color:var(--ink);margin-bottom:4px}
+footer{text-align:center;color:var(--soft);padding:30px 0 40px;font-size:14px}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(380px,100%);background:var(--card);border-left:3px solid var(--pink);transform:translateX(105%);transition:transform .25s;z-index:20;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
+#drawer.open{transform:none}
+#items{flex:1;overflow:auto;margin:12px 0}
+.it{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--line)}
+.it .th{width:44px;height:44px;border-radius:14px;background:var(--pink2);display:grid;place-items:center}
+.it .th svg{width:26px;height:26px;fill:var(--deep)}
+.it div.n{flex:1}
+.x{background:none;color:var(--soft);font-size:22px;line-height:1}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--deep);color:var(--btn-ink);padding:10px 22px;border-radius:999px;transition:transform .3s;z-index:30;font-weight:600}
+#toast.show{transform:translate(-50%,0)}
+@media (max-width:720px){.hero,.sell{grid-template-columns:1fr}.perks{grid-template-columns:1fr}.nav a{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo"><svg viewBox="0 0 24 24" fill="#ff8fc0"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.800-8 11-8 11z"/></svg>Junioss</div>
+  <div class="nav"><a href="#shop">ร้านค้า</a><a href="#sell">ลงขาย</a>
+  <button class="pill" id="cartBtn" aria-label="เปิดตะกร้า"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 8V7a5 5 0 0 1 10 0v1h2.500l1 13H3.500l1-13zm2 0h6V7a3 3 0 0 0-6 0z"/></svg>ตะกร้า <span id="count">0</span></button></div>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>ตลาดแอพดูหนัง<br>สีชมพูละมุน</h1>
+    <p>ซื้อแอพดูหนังและซีรีส์ที่ถูกใจ หรือลงขายแอพของคุณเอง ชำระเงินง่าย ได้ของไว</p>
+    <div class="cta"><a href="#shop"><button class="pill">ดูแอพทั้งหมด</button></a><a href="#sell"><button class="ghost">ลงขายแอพ</button></a></div>
+  </div>
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 380 340">
+      <path d="M70 90c20-60 120-80 190-40 60 35 70 120 30 180-40 60-140 70-200 30C30 220 50 130 70 90z" fill="#ffe3ef"/>
+      <rect x="95" y="95" width="190" height="130" rx="30" fill="#fff" stroke="#ff8fc0" stroke-width="7"/>
+      <rect x="112" y="112" width="156" height="96" rx="20" fill="#ffc2dc"/>
+      <path d="M172 140v40l36-20z" fill="#fff"/>
+      <path d="M150 225l-14 30M230 225l14 30" stroke="#ff8fc0" stroke-width="7" stroke-linecap="round"/>
+      <path d="M170 95c-6-18-28-24-34-10s10 26 34 10zM210 95c6-18 28-24 34-10s-10 26-34 10z" fill="#ff8fc0"/>
+      <circle cx="190" cy="95" r="9" fill="#ec5a9c"/>
+      <g class="float" fill="#ff8fc0"><path d="M60 70l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/><path d="M320 60l5 11 11 5-11 5-5 11-5-11-11-5 11-5z"/></g>
+      <g class="float" style="animation-delay:-2s"><path d="M312 230s-22-14-22-30a12 12 0 0 1 22-7 12 12 0 0 1 22 7c0 16-22 30-22 30z" fill="#ec5a9c"/><circle cx="58" cy="250" r="14" fill="#ffc2dc"/><circle cx="92" cy="290" r="8" fill="#ff8fc0"/></g>
+    </svg>
+  </div>
+</div>
+
+<section id="shop" style="padding-top:10px">
+  <h2>แอพพร้อมขาย</h2>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section>
+  <h2>ทำไมต้องJunioss</h2>
+  <div class="perks">
+    <div class="perk"><h3>ผู้ขายยืนยันตัวตน</h3><div class="meta">ทุกร้านผ่านการตรวจสอบก่อนเปิดขาย</div></div>
+    <div class="perk"><h3>ได้รับของทันที</h3><div class="meta">ชำระเงินแล้วรับลิงก์ดาวน์โหลดทางอีเมล</div></div>
+    <div class="perk"><h3>คืนเงินใน 7 วัน</h3><div class="meta">ใช้งานไม่ได้ แจ้งเราได้เลย</div></div>
+  </div>
+</section>
+
+<section id="sell">
+  <h2>ลงขายแอพของคุณ</h2>
+  <div class="sell" style="margin-top:14px">
+    <div>
+      <label for="fn">ชื่อแอพ</label><input id="fn" maxlength="24" placeholder="เช่น มูฟวี่มิลค์">
+      <label for="fc">หมวดหมู่</label><select id="fc"></select>
+      <label for="fp">ราคา (บาท)</label><input id="fp" type="number" min="0" placeholder="59">
+    </div>
+    <div>
+      <label>เลือกไอคอนน่ารัก</label>
+      <div class="icons" id="icons"></div>
+      <button class="pill" id="addApp" style="margin-top:24px">ลงขายเลย</button>
+      <div class="meta" style="margin-top:10px">แอพที่ลงขายจะแสดงในร้านค้าด้านบนทันที</div>
+    </div>
+  </div>
+</section>
+<footer>ทำด้วยความน่ารัก · Junioss ตลาดแอพดูหนัง</footer>
+</div>
+
+<aside id="drawer" aria-label="ตะกร้าสินค้า">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:28px;color:var(--deep)">ตะกร้าของฉัน</h2><button class="x" id="closeCart" aria-label="ปิด">×</button></div>
+  <div id="items"></div>
+  <div style="display:flex;justify-content:space-between;font-size:20px;margin-bottom:12px"><span>รวมทั้งหมด</span><b class="price" id="total">฿0</b></div>
+  <button class="pill" id="checkout" style="justify-content:center">สั่งซื้อเลย</button>
+</aside>
+<div id="toast" role="status"></div>
+
+<script>
+var P={
+heart:'M12 21s-8-5.200-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 10c0 5.800-8 11-8 11z',
+star:'M12 2l2.900 6.300 6.800.7-5.100 4.600 1.500 6.800L12 17l-6.100 3.400 1.500-6.800L2.300 9l6.800-.7z',
+play:'M8 5v14l11-7z',
+cloud:'M7 18a5 5 0 0 1-.6-9.900A6 6 0 0 1 18 9a4.500 4.500 0 0 1 0 9z',
+moon:'M20 14.500A8.500 8.500 0 0 1 9.500 4 8.500 8.500 0 1 0 20 14.500z',
+sparkle:'M12 2l2.500 7.500L22 12l-7.500 2.500L12 22l-2.500-7.500L2 12l7.500-2.500z',
+drop:'M12 2s7 7.500 7 12.500a7 7 0 0 1-14 0C5 9.500 12 2 12 2z',
+bow:'M12 12c-2-5-8-7-9-3s4 7 9 3zm0 0c2-5 8-7 9-3s-4 7-9 3zM9 14l-2 7 5-3 5 3-2-7z'
+};
+var K=Object.keys(P);
+function ic(k){return '<svg viewBox="0 0 24 24"><path d="'+P[k]+'"/></svg>'}
+var cats=['หนังไทย','ซีรีส์','อนิเมะ','ครอบครัว'];
+var apps=[
+{n:'พีชพอปคอร์น',c:'หนังไทย',p:49,e:'heart',s:'ร้านน้องพีช',r:4.8},
+{n:'มูฟวี่มิลค์',c:'ซีรีส์',p:79,e:'drop',s:'มิลค์แอนด์โค',r:4.7},
+{n:'ซากุระสตรีม',c:'อนิเมะ',p:99,e:'sparkle',s:'ซากุระสตูดิโอ',r:4.9},
+{n:'คิดดี้ซีเนม่า',c:'ครอบครัว',p:39,e:'moon',s:'หมีน้อยแอพ',r:4.6},
+{n:'มาร์ชแมลโลว์ทีวี',c:'ซีรีส์',p:89,e:'cloud',s:'ขนมหวานดิจิทัล',r:4.5},
+{n:'รักแรกพบ HD',c:'หนังไทย',p:59,e:'play',s:'ร้านหัวใจฟู',r:4.8},
+{n:'ยูนิคอร์นแอนิเมะ',c:'อนิเมะ',p:69,e:'star',s:'ม้าน้อยสตูดิโอ',r:4.7},
+{n:'ครอบครัวสุขสันต์',c:'ครอบครัว',p:45,e:'bow',s:'บ้านอบอุ่น',r:4.6}
+];
+var cart=[],cur='ทั้งหมด',pick='bow';
+var $=function(i){return document.getElementById(i)};
+function toast(t){var el=$('toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('show')},1800)}
+function chips(){var h='';['ทั้งหมด'].concat(cats).forEach(function(c){h+='<button class="chip" aria-pressed="'+(c===cur)+'" data-c="'+c+'">'+c+'</button>'});$('chips').innerHTML=h}
+function grid(){var h='';apps.forEach(function(a,i){if(cur!=='ทั้งหมด'&&a.c!==cur)return;
+h+='<div class="card"><div class="ico">'+ic(a.e)+'</div><span class="tag">'+a.c+'</span><h3>'+a.n+'</h3><div class="meta">โดย '+a.s+' · คะแนน '+a.r+'</div><div class="row"><span class="price">฿'+a.p+'</span><button class="pill" data-add="'+i+'">ใส่ตะกร้า</button></div></div>'});
+$('grid').innerHTML=h||'<p class="meta">ยังไม่มีแอพในหมวดนี้ ลองลงขายเป็นเจ้าแรกสิ</p>'}
+function renderCart(){var h='',t=0;cart.forEach(function(a,i){t+=a.p;h+='<div class="it"><span class="th">'+ic(a.e)+'</span><div class="n">'+a.n+'<div class="meta">฿'+a.p+'</div></div><button class="x" data-rm="'+i+'" aria-label="ลบ">×</button></div>'});
+$('items').innerHTML=h||'<p class="meta">ตะกร้ายังว่างอยู่ เลือกแอพที่ชอบได้เลย</p>';$('total').textContent='฿'+t;$('count').textContent=cart.length}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+$('chips').onclick=function(e){var c=e.target.dataset.c;if(c){cur=c;chips();grid()}};
+$('grid').onclick=function(e){var i=e.target.dataset.add;if(i!==undefined){cart.push(apps[i]);renderCart();toast('เพิ่ม '+apps[i].n+' แล้ว')}};
+$('items').onclick=function(e){var i=e.target.dataset.rm;if(i!==undefined){cart.splice(i,1);renderCart()}};
+$('cartBtn').onclick=function(){$('drawer').classList.add('open')};
+$('closeCart').onclick=function(){$('drawer').classList.remove('open')};
+$('checkout').onclick=function(){if(!cart.length){toast('ยังไม่มีสินค้าในตะกร้า');return}cart=[];renderCart();$('drawer').classList.remove('open');toast('สั่งซื้อสำเร็จแล้ว ตรวจสอบอีเมลนะ')};
+$('fc').innerHTML=cats.map(function(c){return'<option>'+c+'</option>'}).join('');
+function icons(){$('icons').innerHTML=K.map(function(k){return'<button data-e="'+k+'" aria-label="ไอคอน '+k+'" aria-pressed="'+(k===pick)+'">'+ic(k)+'</button>'}).join('')}
+$('icons').onclick=function(e){var b=e.target.closest('button');if(b){pick=b.dataset.e;icons()}};
+$('addApp').onclick=function(){var n=$('fn').value.trim(),p=parseInt($('fp').value,10);
+if(!n){toast('กรอกชื่อแอพก่อนนะ');$('fn').focus();return}
+if(isNaN(p)||p<0){toast('กรอกราคาเป็นตัวเลข');$('fp').focus();return}
+apps.unshift({n:esc(n),c:$('fc').value,p:p,e:pick,s:'คุณ (ร้านใหม่)',r:'5.0'});cur='ทั้งหมด';chips();grid();$('fn').value='';$('fp').value='';toast('ลงขาย '+n+' แล้ว');$('shop').scrollIntoView()};
+chips();grid();renderCart();icons();
+</script>
+</body>
+</html>
